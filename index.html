@@ -1,116 +1,187 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
     <head>
         <title>Sander Shi</title>
+        <meta charset="utf-8">
         <!--Let browser know website is optimized for mobile-->
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
         <!--Imports-->
-        <script src="js/jquery.js"></script>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=Geist+Mono:wght@400;500&display=swap">
+        <link rel="stylesheet" href="css/main.css">
         <script src="js/main.js"></script>
         <script src="js/fontawesome.js"></script>
-        <link rel="stylesheet" href="css/main.css">
         <!--Other meta tags-->
-        <meta name="keywords" content="CMU, Sander, Shi, Lanbo">
+        <meta name="keywords" content="Sander Shi, Lanbo, AI Safety, Research Engineer, Musician, CMU">
         <meta name="description"
-            content="Personal Website of Sander Shi, Carnegie Mellon University
-            Computer Science Graduate">
+            content="Personal website of Sander Shi, AI safety research
+            engineer and musician.">
         <meta name="author" content="Sander Shi">
     </head>
-    <body>
+    <body id="top">
 
         <!--Fixed Background-->
-        <div class="fixed-background">
-            <div class="fixed-background-overlay">
-            </div>
+        <div class="fixed-background" aria-hidden="true">
+            <div class="fixed-background-overlay"></div>
         </div>
 
         <!--Navigation-->
-        <div class="navbar">
-            <a class="logo" href="index.html">SANDER SHI</a>
-            <a class="menu-button">
-                MENU
-                <i class="fas fa-bars"></i>
-            </a>
-        </div>
-        <div id="canvas"></div>
-        <div id="nav-menu">
-            <a class="nav-link close-button"><i class="fas fa-times"></i></a>
-            <div class="nav-links">
-                <a class="nav-link" href="#landing-page">Home</a>
-                <a class="nav-link" href="blog">Blog</a>
-                <a class="nav-link" href="src/resume.pdf">Resume</a>
-            </div>
-        </div>
+        <header class="navbar">
+            <a class="logo" href="#top">SANDER SHI</a>
+            <button class="menu-button" type="button" aria-expanded="false"
+                aria-controls="nav-links">
+                MENU <i class="fas fa-bars"></i>
+            </button>
+            <nav class="nav-links" id="nav-links" aria-label="Sections">
+                <a href="#about">About</a>
+                <a href="#research">Research</a>
+                <a href="#music">Music</a>
+                <a href="#contact">Contact</a>
+            </nav>
+        </header>
 
         <!--Landing Page Section-->
-        <a name="landing-page"></a>
-        <div id="landing-page">
+        <section id="landing-page">
             <div class="landing-page-content">
-                <div class="landing-page-text">
-                    <h1 class="text-center">
-                        <span id="hi">Hi!</span>
-                        My name is
-                        <span class="name">Sander SHI.</span>
-                    </h1>
-                    <br/>
-                        <p class="text-center">
-                            I am a computer scientist, software engineer
-                            and musician. I always enjoy learning new things.
-                        </p>
-                        <p class="text-center icons">
-                            <a href="https://www.linkedin.com/in/sandershi/"
-                                title="LinkedIn">
-                                <i class="fab fa-linkedin-in"></i>
-                            </a>
-                            <a href="https://www.facebook.com/sandershihacker"
-                                title="Facebook">
-                                <i class="fab fa-facebook"></i>
-                            </a>
-                            <a href="mailto:lanbosandershi@gmail.com"
-                                title="Email">
-                                <i class="far fa-envelope"></i>
-                            </a>
-                            <a href="https://github.com/sandershihacker"
-                                title="Github">
-                                <i class="fab fa-github"></i>
-                            </a>
-                            <a href="src/resume.pdf" title="Resume">
-                                <i class="far fa-file-pdf"></i>
-                            </a>
-                        </p>
-                    </div>
-                    <div class="more-arrow text-center">
-                        <a class="learn-more-button"><p>LEARN MORE</p></a>
-                    </div>
-                </div>
+                <h1>
+                    <span class="hi">Hi! I'm</span>
+                    <span class="name">Sander Shi.</span>
+                </h1>
+                <nav class="icons" aria-label="Elsewhere">
+                    <a href="https://www.linkedin.com/in/sandershi/"
+                        title="LinkedIn" aria-label="LinkedIn">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a href="https://github.com/lanbosandershi"
+                        title="GitHub" aria-label="GitHub">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="mailto:lanbosandershi@gmail.com"
+                        title="Email" aria-label="Email">
+                        <i class="far fa-envelope"></i>
+                    </a>
+                    <a href="src/resume.pdf" title="Resume"
+                        aria-label="Resume (PDF)">
+                        <i class="far fa-file-pdf"></i>
+                    </a>
+                </nav>
             </div>
+            <a class="more-arrow" href="#about">
+                LEARN MORE
+                <i class="fas fa-angle-down"></i>
+            </a>
+        </section>
 
-            <!-- Learn More -->
-            <div id="learn-more">
-                <div class="learn-more-content">
-                    <a class="learn-more-close close-button"><i class="fas
-                            fa-times"></i></a>
-                    <div class="learn-more-text">
+        <main class="content">
+            <div class="container">
+
+                <!--About-->
+                <section id="about" class="section">
+                    <div class="section-label">01 — ABOUT</div>
+                    <div class="section-body">
                         <h2>Hi!</h2>
+                        <p class="lead">
+                            I'm an AI Safety Research Engineer and Musician.
+                        </p>
                         <p>
-                            I am currently a <strong>Software Developer</strong> on the LivingRoom
-                            platform team at <strong>Hulu</strong>.
+                            I am currently a <strong>Founding Member of
+                            Technical Staff</strong> at <strong><a
+                            href="https://sampura.org">Sampura
+                            Research</a></strong>, working on human–AI
+                            complementarity for AI safety. Before that, I
+                            built multi-agent systems at an AI startup, ads
+                            infrastructure at <strong>Google</strong>, and a
+                            cross-platform browser engine at
+                            <strong>Hulu</strong>.
                         </p>
                         <p>
                             I graduated with a Bachelor of Science in
                             <strong>Computer Science</strong> at
                             <strong>Carnegie Mellon University</strong> in 2019.
-                            Within the realm of computer science, I am interested in
-                            Complexity Theory, Machine Learning, and Natural Language Processing.
                         </p>
                         <p>
-                            I also like to explore my passions
-                            in Jazz Improvisation, Language Learning, Stunt Biking and cooking.
-                            Shoot me an email if you'd like to chat!
+                            I also like to explore my passions in Jazz
+                            Improvisation, Language Learning, Stunt Biking and
+                            cooking. Shoot me an email if you'd like to chat!
                         </p>
                     </div>
-                </div>
+                </section>
+
+                <!--Research-->
+                <section id="research" class="section">
+                    <div class="section-label">02 — RESEARCH</div>
+                    <article class="card paper">
+                        <span class="tag">PREPRINT · 2026</span>
+                        <h3 class="card-title">
+                            Towards Human-AI Complementarity for AI Safety
+                        </h3>
+                        <p class="authors">
+                            <strong>Sander Lanbo Shi*</strong>, Miranda Anna
+                            Christ*, Eric Modesitt, Andrew Louis, Konrad Cheng
+                            <span>+ 18 more · *co-first authors</span>
+                        </p>
+                        <p class="card-text">
+                            The largest known suite of safety-relevant tasks for
+                            testing whether humans and AI can catch each
+                            other's mistakes. The opportunity is real; current
+                            methods don't yet capture it.
+                        </p>
+                        <!--TODO: Point to arXiv once the preprint is live.-->
+                        <a class="button" href="https://drive.google.com/file/d/1wb1GjA5lvptKstp0tUMBmYEaCDgDRfNT/view?usp=sharing">Read the paper</a>
+                    </article>
+                </section>
+
+                <!--Music-->
+                <section id="music" class="section">
+                    <div class="section-label">03 — MUSIC</div>
+                    <div class="section-body">
+                        <p class="lead">
+                            Off the keyboard, I'm a session musician on
+                            <strong>bass</strong>, <strong>piano</strong> and
+                            <strong>guitar</strong>.
+                        </p>
+                        <div class="cards">
+                            <div class="card">
+                                <span class="card-label">BAND</span>
+                                <h3 class="card-title">Standish &amp; Co</h3>
+                                <p class="card-text">Playing bass with the band.</p>
+                                <div class="card-links">
+                                    <a href="https://standishandcompanyband.com/">Website →</a>
+                                    <a href="https://open.spotify.com/artist/43mfBfBQxlAvr9TnHZjvmU">Listen on Spotify →</a>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <span class="card-label">RECORDING</span>
+                                <h3 class="card-title">River Run</h3>
+                                <p class="card-text">
+                                    Recorded bass for the EP
+                                    <em>Me, Chloe, Alice and Ben</em>.
+                                </p>
+                                <div class="card-links">
+                                    <a href="https://open.spotify.com/album/6PTqDd6t7pA0jzc3R4ZH3S">Listen on Spotify →</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!--Contact-->
+                <section id="contact">
+                    <div class="section-label">04 — CONTACT</div>
+                    <h2>Let's chat.</h2>
+                    <a class="email" href="mailto:lanbosandershi@gmail.com">lanbosandershi@gmail.com</a>
+                    <footer>
+                        <span>© 2026 Sander Shi</span>
+                        <nav aria-label="Links">
+                            <a href="https://www.linkedin.com/in/sandershi/">LinkedIn</a>
+                            <a href="https://github.com/lanbosandershi">GitHub</a>
+                            <a href="src/resume.pdf">Resume</a>
+                        </nav>
+                    </footer>
+                </section>
+
             </div>
-        </body>
-    </html>
+        </main>
+    </body>
+</html>

@@ -4,101 +4,94 @@
  * Author: Sander Shi.
  */
 
-// Imports
-@import "fonts";
-@import "./bootstrap.min.css";
-
 // Variables
 $landing-page-color: #efefef;
 $theme-color: #1abc9c;
-$icon-color: #000000;
-$navbar-color: rgba(0, 0, 0, 0.8);
-$sidenav-color: #fcfcfc;
-$short-descript-color: #7f8c8d;
-$about-me-color-2: white;
-$project-color: $theme-color;
-$contact-color: rgba(0, 0, 0, 0.5);
-$input-color: rgba(255, 255, 255, 0.4);
-$grey-text-color: #808080;
-$footer-color: $navbar-color;
+$link-color: #0b7a64;
+$link-hover-color: #075a4a;
+$text-color: #141414;
+$body-text-color: #3d4447;
+$muted-text-color: #5b6366;
+$tag-color: #e3f6f1;
+$card-color: #ffffff;
+$panel-color: rgba(250, 250, 250, 0.86);
+$line-color: rgba(20, 20, 20, 0.1);
+
+$sans: 'Geist', system-ui, sans-serif;
+$mono: 'Geist Mono', ui-monospace, monospace;
+
+$nav-height: 69px;
+$anchor-gap: 32px;
 
 $large-screen: 1124px;
-$medium-screen: 650px;
+$medium-screen: 720px;
 
 $portrait-location: url("../src/portrait.jpg");
 $portrait-mobile-location: url("../src/portrait-mobile.jpg");
 
 // Mixins
-@mixin page-section() {
-    height: 100vh;
-    width: 100%;
-}
-
 @mixin fix-top-left() {
     position: fixed;
     top: 0;
     left: 0;
 }
 
+@mixin page-section() {
+    height: 100vh;
+    width: 100%;
+}
+
 @mixin fixed-background() {
     @include fix-top-left();
     @include page-section();
+    // Cover the screen even when mobile browser toolbars collapse.
+    height: 100lvh;
 }
 
-// Responsive Text
-@function strip-unit($value) {
-  @return $value / ($value * 0 + 1);
+@mixin gutter() {
+    padding-left: clamp(16px, 4vw, 56px);
+    padding-right: clamp(16px, 4vw, 56px);
 }
 
-@mixin fluid-type($min-vw, $max-vw, $min-font-size, $max-font-size) {
-  $u1: unit($min-vw);
-  $u2: unit($max-vw);
-  $u3: unit($min-font-size);
-  $u4: unit($max-font-size);
-
-  @if $u1 == $u2 and $u1 == $u3 and $u1 == $u4 {
-    & {
-      font-size: $min-font-size;
-      @media screen and (min-width: $min-vw) {
-        font-size: calc(#{$min-font-size} + #{strip-unit($max-font-size - $min-font-size)} * ((100vw - #{$min-vw}) / #{strip-unit($max-vw - $min-vw)}));
-      }
-      @media screen and (min-width: $max-vw) {
-        font-size: $max-font-size;
-      }
-    }
-  }
+// Land a section's label just below the fixed navbar when linked to.
+@mixin anchor($padding-top, $gap: $anchor-gap) {
+    scroll-margin-top: $nav-height + $gap - $padding-top;
 }
 
-$min_width: 320px;
-$max_width: 1200px;
-$min_font: 16px;
-$max_font: 24px;
-
-html {
-  @include fluid-type($min_width, $max_width, $min_font, $max_font);
+@mixin label() {
+    font-family: $mono;
+    font-size: 13px;
+    letter-spacing: 0.1em;
+    color: $link-color;
 }
 
 // Helpers and Defaults
 * {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
     margin: 0;
-    font-family: 'Open Sans', sans-serif;
+    background-color: $landing-page-color;
+    color: $text-color;
+    font-family: $sans;
+    -webkit-font-smoothing: antialiased;
 }
 
 a, a:visited {
     text-decoration: none;
-    color: $short-descript-color;
+    color: $link-color;
     transition-duration: 0.3s;
 }
 a:hover {
-    text-decoration: none;
-    color: $sidenav-color;
-    transition-duration: 0.3s;
+    color: $link-hover-color;
 }
 
-.container {
-    max-width: 1260px;
-    padding-left: 20px;
-    padding-right: 20px;
-    padding-top: 60px;
-    padding-bottom: 60px;
+strong {
+    color: $text-color;
+    font-weight: 600;
 }

@@ -1,2 +1,2 @@
 css:
-	sass main.scss:main.css
+	sass --no-source-map main.scss:main.css

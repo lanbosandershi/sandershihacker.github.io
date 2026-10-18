@@ -5,114 +5,85 @@
  */
 
 // Keyframes
-@-webkit-keyframes more-arrow {
-    0%      {bottom: 10px; opacity: 0;}
-    100%    {bottom: -10px; opacity: 1;}
+@keyframes fade-in {
+    from {opacity: 0; transform: translateY(12px);}
+    to   {opacity: 1; transform: none;}
 }
 
 @keyframes more-arrow {
-    0%      {bottom: 10px; opacity: 0;}
-    100%    {bottom: -10px; opacity: 1;}
+    0%   {transform: translateY(-6px); opacity: 0;}
+    100% {transform: translateY(8px); opacity: 1;}
 }
 
 // Main
 #landing-page {
-    @include page-section();
+    @include gutter();
+    position: relative;
+    min-height: 100vh;
+    min-height: 100svh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding-top: 80px;
+    padding-bottom: 40px;
     .landing-page-content {
-        height: 100%;
-        display: none;
+        max-width: 1200px;
+        display: flex;
+        flex-direction: column;
         align-items: center;
-        justify-content: center;
-        .landing-page-text {
-            max-width: 950px;
-            h1 {
-                font-size: 70px;
-                font-weight: bold;
-                padding: 10px;
-            }
-            p {
-                font-size: 35px;
-                color: $short-descript-color;
-                padding: 10px;
-            }
-            .icons {
-                color: $icon-color;
-                a {
-                    margin: 30px;
-                    font-size: 40px;
-                    color: $icon-color;
-                    transition-duration: 0.3s;
-                }
-                a:hover {
-                    color: $short-descript-color;
-                    transition-duration: 0.3s;
-                }
-            }
+        gap: 28px;
+        animation: fade-in 1.2s ease 1.6s both;
+    }
+    h1 {
+        margin: 0;
+        font-size: clamp(32px, 6.4vw, 96px);
+        line-height: 1.05;
+        letter-spacing: -0.035em;
+        font-weight: 600;
+        .hi {
+            font-weight: 300;
         }
         .name {
             color: $theme-color;
         }
-        .more-arrow {
-            position: absolute;
-            bottom: 30px;
-            a {
-                color: $icon-color;
-                cursor: pointer;
-                p {
-                    margin: 0;
-                    padding: 5px;
-                }
-                svg {
-                    position: relative;
-                    animation: more-arrow 2s infinite;
-                    -webkit-animation: more-arrow 2s infinite;
-                }
-            }
-            a:hover {
-                color: lighten($icon-color, 50%);
-            }
+    }
+    .icons {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 8px;
+        a {
+            display: grid;
+            place-items: center;
+            width: 48px;
+            height: 48px;
+            font-size: 22px;
+            color: $text-color;
+        }
+        a:hover {
+            color: $link-color;
         }
     }
-}
-
-// Media Queries
-@media screen and (max-width: $large-screen) {
-   #landing-page {
-       .landing-page-content {
-           .landing-page-text {
-               max-width: 600px;
-               p {
-               font-size: 25px;
-               }
-               .icons {
-                   a {
-                       margin: 20px;
-                       font-size: 40px;
-                   }
-               }
-           }
-       }
-   }
-}
-
-@media screen and (max-width: $medium-screen) {
-    #landing-page {
-        .landing-page-content {
-            .landing-page-text {
-                max-width: 600px;
-                h1 {
-                    font-size: 50px;
-                }
-                p {
-                    font-size: 20px;
-                }
-                .icons {
-                    a {
-                        margin: 10px;
-                        font-size: 25px;
-                    }
-                }
-            }
+    .more-arrow {
+        position: absolute;
+        bottom: 28px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 6px;
+        min-height: 44px;
+        color: $text-color;
+        font-family: $mono;
+        font-size: 12px;
+        letter-spacing: 0.18em;
+        animation: fade-in 1.2s ease 1.6s both;
+        svg {
+            animation: more-arrow 2s ease-in-out infinite;
         }
+    }
+    .more-arrow:hover {
+        color: $link-color;
     }
 }
