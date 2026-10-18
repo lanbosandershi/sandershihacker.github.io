@@ -41,6 +41,8 @@ $portrait-mobile-location: url("../src/portrait-mobile.jpg");
 @mixin fixed-background() {
     @include fix-top-left();
     @include page-section();
+    // Cover the screen even when mobile browser toolbars collapse.
+    height: 100lvh;
 }
 
 @mixin gutter() {
