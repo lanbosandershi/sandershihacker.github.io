@@ -1,81 +1,86 @@
 /*
  * File: _navigation.scss
- * Description: The stylesheet for the navigation menu.
+ * Description: The stylesheet for the navigation bar.
  * Author: Sander Shi.
  */
 
 // Main
-#nav-menu {
-    background-color: $sidenav-color;
-    width: 500px;
-    height: 100vh;
-    position: fixed;
-    top: 0;
-    right: 0;
-    z-index: 999;
-    color: $short-descript-color;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    .nav-links {
-        text-align: center;
-        padding: 10px;
-        .nav-link {
-            margin: 10px;
-        }
-        a:hover {
-            font-weight: normal;
-            color: $icon-color;
-        }
-    }
-    .close-button {
-        position: absolute;
-        top: 0;
-        right: 0;
-        cursor: pointer;
-        font-size: 25px;
-    }
-    a.close-button:hover {
-        transform: rotate(90deg);
-    }
-}
-#canvas{
-    @include fix-top-left();
-    @include page-section();
-    background-color: rgba(0, 0, 0, 0.7);
-    z-index: 998;
-}
 .navbar {
-    @include fix-top-left();
-    width: 100%;
-    display: inline-block;
-    font-size: 16px;
-    z-index: 998;
-    a {
-        margin: 0;
-        padding: 6px;
-        border-radius: 4px;
-        color: $navbar-color;
-        font-weight: bold;
-        border: none;
-        cursor: pointer;
-        transition-duration: 0.3s;
+    @include gutter();
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0 16px;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    background-color: rgba(239, 239, 239, 0.6);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(20, 20, 20, 0.08);
+    animation: fade-in 1s ease 1.6s both;
+    a, a:visited {
+        color: rgba(20, 20, 20, 0.78);
     }
     a:hover {
-        background-color: rgba(0, 0, 0, 0.1);
-        transition-duration: 0.3s;
+        color: $text-color;
     }
-    a.menu-button {
-        float: right;
+    .logo {
+        display: inline-flex;
+        align-items: center;
+        min-height: 44px;
+        font-weight: 700;
+        letter-spacing: 0.14em;
+        font-size: 14px;
     }
-    a.logo {
-        float: left;
+    .menu-button {
+        display: none;
+        min-width: 44px;
+        min-height: 44px;
+        padding: 0;
+        border: none;
+        background: transparent;
+        color: $text-color;
+        font: inherit;
+        font-size: 14px;
+        font-weight: 700;
+        cursor: pointer;
+        svg {
+            margin-left: 6px;
+        }
+    }
+    .nav-links {
+        display: flex;
+        gap: 28px;
+        font-size: 14px;
+        font-weight: 500;
+        a {
+            display: inline-flex;
+            align-items: center;
+            min-height: 44px;
+        }
     }
 }
 
 // Responsive
 @media screen and (max-width: $medium-screen) {
-    #nav-menu {
-        width: 100%;
+    .navbar {
+        .menu-button {
+            display: inline-flex;
+            align-items: center;
+        }
+        .nav-links {
+            display: none;
+            width: 100%;
+            flex-direction: column;
+            gap: 0;
+            padding-bottom: 8px;
+        }
+        &.open .nav-links {
+            display: flex;
+        }
     }
 }

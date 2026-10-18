@@ -4,6 +4,12 @@
  * Author: Sander Shi.
  */
 
+// Keyframes
+@keyframes overlay-fade {
+    from {opacity: 1;}
+    to   {opacity: 0.75;}
+}
+
 // Main
 .fixed-background {
     @include fixed-background();
@@ -14,7 +20,7 @@
     .fixed-background-overlay {
         @include fixed-background();
         background-color: $landing-page-color;
-        opacity: 1;
+        animation: overlay-fade 0.8s ease 0.8s both;
     }
 }
 
