@@ -24,10 +24,6 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-section[id] {
-  scroll-margin-top: 84px;
-}
-
 a, a:visited {
   text-decoration: none;
   color: #0b7a64;
@@ -297,6 +293,7 @@ strong {
   grid-template-columns: 240px minmax(0, 1fr);
   gap: 48px;
   padding: 96px 0;
+  scroll-margin-top: 5px;
   border-bottom: 1px solid rgba(20, 20, 20, 0.1);
 }
 .section .section-body {
@@ -310,6 +307,7 @@ strong {
 
 #about {
   padding-top: 120px;
+  scroll-margin-top: -19px;
 }
 #about .section-body {
   max-width: 800px;
@@ -438,6 +436,8 @@ strong {
   align-items: flex-start;
   gap: 28px;
   padding: 120px 0 72px;
+  scroll-margin-top: -19px;
+  min-height: calc(100vh - -19px);
   border-bottom: none;
 }
 #contact h2 {
@@ -460,6 +460,7 @@ strong {
   justify-content: space-between;
   gap: 16px;
   width: 100%;
+  margin-top: auto;
   padding-top: 72px;
   font-size: 14px;
   color: #5b6366;
@@ -474,9 +475,11 @@ strong {
     grid-template-columns: 1fr;
     gap: 18px;
     padding: 48px 0;
+    scroll-margin-top: 45px;
   }
   #about {
     padding-top: 56px;
+    scroll-margin-top: 37px;
   }
   #about p:not(.lead) {
     font-size: 16px;
@@ -486,6 +489,8 @@ strong {
   }
   #contact {
     padding: 56px 0 40px;
+    scroll-margin-top: 37px;
+    min-height: calc(100vh - 37px);
   }
   #contact footer {
     padding-top: 40px;

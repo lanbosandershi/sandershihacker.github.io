@@ -27,6 +27,7 @@
     grid-template-columns: 240px minmax(0, 1fr);
     gap: 48px;
     padding: 96px 0;
+    @include anchor(96px);
     border-bottom: 1px solid $line-color;
     .section-body {
         display: flex;
@@ -41,6 +42,7 @@
 // About
 #about {
     padding-top: 120px;
+    @include anchor(120px);
     .section-body {
         max-width: 800px;
     }
@@ -175,6 +177,9 @@
     align-items: flex-start;
     gap: 28px;
     padding: 120px 0 72px;
+    @include anchor(120px);
+    // Tall enough for its label to reach the top when linked to.
+    min-height: calc(100vh - #{$nav-height + $anchor-gap - 120px});
     border-bottom: none;
     h2 {
         margin: 0;
@@ -196,6 +201,7 @@
         justify-content: space-between;
         gap: 16px;
         width: 100%;
+        margin-top: auto;
         padding-top: 72px;
         font-size: 14px;
         color: $muted-text-color;
@@ -212,9 +218,11 @@
         grid-template-columns: 1fr;
         gap: 18px;
         padding: 48px 0;
+        @include anchor(48px, 24px);
     }
     #about {
         padding-top: 56px;
+        @include anchor(56px, 24px);
         p:not(.lead) {
             font-size: 16px;
         }
@@ -224,6 +232,8 @@
     }
     #contact {
         padding: 56px 0 40px;
+        @include anchor(56px, 24px);
+        min-height: calc(100vh - #{$nav-height + 24px - 56px});
         footer {
             padding-top: 40px;
         }

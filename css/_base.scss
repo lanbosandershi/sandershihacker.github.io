@@ -20,6 +20,9 @@ $line-color: rgba(20, 20, 20, 0.1);
 $sans: 'Geist', system-ui, sans-serif;
 $mono: 'Geist Mono', ui-monospace, monospace;
 
+$nav-height: 69px;
+$anchor-gap: 32px;
+
 $large-screen: 1124px;
 $medium-screen: 720px;
 
@@ -50,6 +53,11 @@ $portrait-mobile-location: url("../src/portrait-mobile.jpg");
     padding-right: clamp(16px, 4vw, 56px);
 }
 
+// Land a section's label just below the fixed navbar when linked to.
+@mixin anchor($padding-top, $gap: $anchor-gap) {
+    scroll-margin-top: $nav-height + $gap - $padding-top;
+}
+
 @mixin label() {
     font-family: $mono;
     font-size: 13px;
@@ -72,10 +80,6 @@ body {
     color: $text-color;
     font-family: $sans;
     -webkit-font-smoothing: antialiased;
-}
-
-section[id] {
-    scroll-margin-top: 84px;
 }
 
 a, a:visited {
