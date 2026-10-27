@@ -454,6 +454,13 @@ strong {
   border-bottom: 1px solid rgba(20, 20, 20, 0.1);
   font-size: 16px;
 }
+#music .previously li a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  margin: -11px 0;
+  font-weight: 500;
+}
 #music .previously li span:last-child {
   color: #5b6366;
 }
