@@ -429,6 +429,34 @@ strong {
 #music .card {
   min-height: 200px;
 }
+#music .previously {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+#music .previously .card-label {
+  font-family: "Geist Mono", ui-monospace, monospace;
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  color: #5b6366;
+}
+#music .previously ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+#music .previously li {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 4px 16px;
+  padding: 14px 0;
+  border-bottom: 1px solid rgba(20, 20, 20, 0.1);
+  font-size: 16px;
+}
+#music .previously li span:last-child {
+  color: #5b6366;
+}
 
 #contact {
   display: flex;
