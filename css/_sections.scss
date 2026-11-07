@@ -7,9 +7,9 @@
 
 // Main
 .content {
+    // Solid, not a backdrop blur: blurring the fixed photo behind a
+    // page-tall panel made every scroll frame expensive.
     background-color: $panel-color;
-    backdrop-filter: blur(22px);
-    -webkit-backdrop-filter: blur(22px);
     border-top: 1px solid rgba(20, 20, 20, 0.08);
     .container {
         @include gutter();
