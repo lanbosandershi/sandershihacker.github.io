@@ -256,7 +256,7 @@ strong {
   animation: fade-in 1.2s ease 1.6s both;
 }
 #landing-page .more-arrow svg {
-  animation: more-arrow 2s ease-in-out infinite;
+  animation: more-arrow 1s ease-in-out 2.8s 3 alternate both;
 }
 #landing-page .more-arrow:hover {
   color: #0b7a64;
