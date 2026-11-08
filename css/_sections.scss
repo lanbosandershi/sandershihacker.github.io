@@ -9,6 +9,8 @@
 .content {
     // Solid, not a backdrop blur: blurring the fixed photo behind a
     // page-tall panel made every scroll frame expensive.
+    position: relative;
+    z-index: 1;
     background-color: $panel-color;
     border-top: 1px solid rgba(20, 20, 20, 0.08);
     .container {
