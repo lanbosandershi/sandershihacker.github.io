@@ -80,7 +80,9 @@
         letter-spacing: 0.18em;
         animation: fade-in 1.2s ease 1.6s both;
         svg {
-            animation: more-arrow 2s ease-in-out infinite;
+            // Bounce a few times as part of the intro, then stay still.
+            // An odd count ends on the visible keyframe.
+            animation: more-arrow 1s ease-in-out 2.8s 3 alternate both;
         }
     }
     .more-arrow:hover {
