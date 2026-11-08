@@ -16,7 +16,10 @@
     background-image: $portrait-location;
     background-position: center;
     background-size: cover;
-    z-index: -1;
+    // Its own compositor layer under the page (not z-index: -1), so
+    // Chrome paints the photo once instead of on every scroll frame.
+    z-index: 0;
+    will-change: transform;
     .fixed-background-overlay {
         @include fixed-background();
         background-color: $landing-page-color;
